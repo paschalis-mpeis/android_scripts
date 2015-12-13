@@ -5,6 +5,9 @@
 # It will (at least) break all Google Apps.
 # Paschalis Mpeis, 2015
 ##########
+# FIXME FIXES for non working apps:
+## extract lib files. rename arm* to arm. push to device. give permissions
+# make symlinks for some of them (in fix.sh)
 
 ##########
 ## Usage: odex-system-dir
