@@ -1,5 +1,6 @@
 system_deodexed
 system_odexed
+tools
 *.jar
 *.dex
 *.odex
