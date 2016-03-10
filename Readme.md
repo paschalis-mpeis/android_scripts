@@ -1,7 +1,6 @@
 # Folders contaiin
 
 ## deoxex
-A simple script that deodexes a Nexus 6, running Android Marshmallow, on OSX.
-It results in a deodexed framework with corrupted Google Apps.
-It may "work" on Linux as well, and possibly on other Nexus devices.
-It uses the projects oat2dex and smali by @testwhat and @JesusFreke.
+A simple script that deodexes Lollipop(ART)+ Android system partitions.
+It results in a deodexed framework ~~with corrupted Google Apps~~(shouldn't cause corrupted apps anymore!).
+It uses the projects [SmaliEx](https://github.com/testwhat/SmaliEx) and [smali](https://github.com/JesusFreke/smali) by @testwhat and @JesusFreke respectively.
