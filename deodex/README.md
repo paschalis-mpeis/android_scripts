@@ -27,6 +27,15 @@ There are two functionalities. Unpacking the dex code from relevant places
     Do smali tinkering (you are responsible for repacking dex).
     ./deodexer.sh pack
 
+## 0 Get necessary files from device
+• e.g.
+{{{
+mkdir system-orig
+adb pull /system/framework system-orig
+adb pull /system/app system-orig
+adb pull /system/priv-app system-orig
+}}}
+
 ## 1 ./deodexer.sh unpack <system-directory>
 
 Give the path to the system directory I.E. `<path to android root>/system`
@@ -45,6 +54,17 @@ The arch paramater is optional, if provided it will override the instruction set
 This will force that arch's decompiled odex to be used in repacking. For valid values see here:
 https://android.googlesource.com/platform/art/+/master/dex2oat/dex2oat.cc#235
 
+## 3. Send deodex files to device
+• e.g.
+{{{
+cd system_deodexed
+adb push app /system/
+adb push framework /system/
+adb push priv-app /system/
+adb push lib /system/
+}}}
+
+
 # Dependencies:
 
 * GNU sed
@@ -55,3 +75,7 @@ https://android.googlesource.com/platform/art/+/master/dex2oat/dex2oat.cc#235
 * curl if 'tools/oat2dex.jar' is missing
   * Note: If for some reason the [default download url](https://raw.githubusercontent.com/testwhat/SmaliEx/master/smaliex-bin/oat2dex.jar) goes dead you can override it by setting OAT2DEXURL="http://..." && ./deodexer.sh <unpack|pack>
 * Lollipop(ART enabled) or later system files
+
+# Devices tested
+• Nexus 6
+   ◦ on Ubuntu host

@@ -514,6 +514,7 @@ find "$system_dir/priv-app" -type d -print0 | while IFS= read -r -d '' app; do
                 find "$system_dir/priv-app/$(basename "$app")/lib/$arch64" -type f -regex ".*\.\(so\)" -print0 | while IFS= read -r -d '' sharedobject; do
                     if [[ (! -L "$sharedobject") && (-f "$sharedobject")]]; then
                         echo "Fixing $arch64 $sharedobject"
+                        mkdir -p "$system_dir/lib64/"
                         $SUDO ln -sf "../priv-app/$(basename "$app")/lib/$arch64/$(basename "$sharedobject")" "$system_dir/lib64/"
                         $SUDO chown 0:0 "$system_dir/lib64/$(basename "$sharedobject")"
                         $SUDO chmod 0644 "$system_dir/lib64/$(basename "$sharedobject")"
@@ -527,6 +528,7 @@ find "$system_dir/priv-app" -type d -print0 | while IFS= read -r -d '' app; do
                 find "$system_dir/priv-app/$(basename "$app")/lib/$arch32" -type f -regex ".*\.\(so\)" -print0 | while IFS= read -r -d '' sharedobject; do
                     if [[ (! -L "$sharedobject") && (-f "$sharedobject")]]; then
                         echo "Fixing $arch32 $sharedobject"
+                        mkdir -p "$system_dir/lib/"
                         $SUDO ln -sf "../priv-app/$(basename "$app")/lib/$arch32/$(basename "$sharedobject")" "$system_dir/lib/"
                         $SUDO chown 0:0 "$system_dir/lib/$(basename "$sharedobject")"
                         $SUDO chmod 0644 "$system_dir/lib/$(basename "$sharedobject")"

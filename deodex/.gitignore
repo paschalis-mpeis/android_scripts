@@ -1,6 +1,7 @@
 system_deodexed
 system_odexed
-tools
-*.jar
+# TODO fix automatic retrieval of oat2dex.jar and then ignore again tools/
+#tools
+#*.jar
 *.dex
 *.odex
