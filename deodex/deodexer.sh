@@ -37,7 +37,7 @@
 ARCH="arm"
 API=23
 # you might want to change this
-RM="safe-rm" # regular rm?
+RM="rm" # regular rm?
 ########## end-of-user-vars
 
 
@@ -47,6 +47,15 @@ UNPACK=0
 PACK=1
 mode=-1
 
+##########
+## 
+##########
+function show_usage {
+echo "Usage:"
+echo "$0 unpack odex-system-directory"
+echo "$0 pack"
+exit
+}
 
 
 if [ $# -ne 1 ] && [ $# -ne 2 ] ; then
@@ -75,15 +84,6 @@ api=$API
 oat2dex="java -Xmx1024m -jar tools/oat2dex.jar"
 
 
-##########
-## 
-##########
-function show_usage {
-echo "Usage:"
-echo "$0 unpack odex-system-directory"
-echo "$0 pack"
-exit
-}
 ##########
 ## Okay, I wont implement this.
 ##########
